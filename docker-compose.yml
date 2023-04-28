@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  delivery-db:
+    image: postgres
+    container_name: delivery-database
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=pedro
+      - POSTGRES_PASSWORD=senhasupersecreta
+      - POSTGRES_DB=delivery
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
